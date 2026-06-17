@@ -7,6 +7,7 @@
 // CONFIGURACIÓN
 // ============================================
 const TOTAL_STEPS = 12; // 0 welcome + 11 bloques + summary + success
+let currentStep = 0;
 
 // Mapeo de pasos a IDs de pantallas
 const SCREENS = [
