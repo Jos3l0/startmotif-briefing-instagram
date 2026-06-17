@@ -118,7 +118,7 @@ const BLOCKS = [
       { id: 'p19b-local-fisico', label: 'Local físico' },
       { id: 'p19c-direccion', label: 'Dirección específica' },
       { id: 'p19d-cp', label: 'Código postal' },
-      { id: 'p19e-sucursales', label: 'Sucursales adicionales' },
+      { id: 'p19e-sucursales', label: 'Sucursales, locales o zonas de cobertura' },
       { id: 'p19f-radio', label: 'Radio de alcance' },
       { id: 'p19h-envios', label: 'Envíos' },
       { id: 'p19g-zonas-ads', label: 'Zonas geográficas para anuncios' }
