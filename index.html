@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="Auditoría Estratégica de Instagram por Startmotif. Responde 22 preguntas clave y recibe tu diagnóstico profesional.">
+  <title>Startmotif — Auditoría Estratégica Instagram</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+
+<div class="app-container">
+
+  <!-- HEADER -->
+  <header class="top-bar" id="main-header" style="display:none;">
+    <img src="assets/logo-header.png" alt="Startmotif" class="logo-header">
+    <div class="progress-wrapper">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <div class="progress-text" id="progress-text">0% completado</div>
+    </div>
+  </header>
+
+  <!-- ============================================
+       PANTALLA 0: BIENVENIDA
+       ============================================ -->
+  <section class="screen active" id="screen-welcome">
+    <div class="welcome-screen">
+      <img src="assets/logo-header.png" alt="Startmotif" class="welcome-logo">
+      <div class="welcome-badge">Briefing Estratégico</div>
+      <h1 class="title-xl">Cuéntanos sobre tu negocio</h1>
+      <p class="text-secondary" style="max-width:480px;">
+        Responde <strong>22 preguntas clave</strong> sobre tu empresa, tu producto, tu cliente ideal y tus metas.
+        Con esta información, el equipo de <strong>Startmotif</strong> diseñará una estrategia de Instagram
+        personalizada para hacer crecer tu marca y conseguir resultados reales.
+      </p>
+      <div class="welcome-features">
+        <div class="feature-item">
+          <div class="feature-icon">&#128221;</div>
+          <span class="feature-text">Cuestionario guiado paso a paso</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">&#128196;</div>
+          <span class="feature-text">PDF profesional descargable</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">&#128242;</div>
+          <span class="feature-text">Envíalo a tu asesor de Startmotif</span>
+        </div>
+      </div>
+      <div style="margin-top:8px;">
+        <span class="text-muted">Duración aproximada: 10-15 minutos</span>
+      </div>
+      <div class="btn-group" style="justify-content:center;">
+        <button class="btn btn-primary btn-lg" onclick="goToStep(1)">Comenzar ahora</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PANTALLA 1: DATOS DE CONTACTO + BLOQUE 1
+       ============================================ -->
+  <section class="screen" id="screen-step-1">
+    <div class="step-indicator">Paso 1 de 10 — Tus datos</div>
+    <h2 class="title-lg">¿Quién eres?</h2>
+    <p class="text-secondary mb-3">Datos de contacto del responsable del negocio.</p>
+
+    <div class="form-group">
+      <label class="label" for="client-name">Nombre completo del responsable <span class="required">*</span></label>
+      <input type="text" id="client-name" data-required="true" placeholder="Ej: Ana López">
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="client-email">Correo electrónico de contacto</label>
+      <input type="email" id="client-email" placeholder="Ej: ana@tunegocio.com">
+      <span class="hint">Opcional. Para enviarte copia del documento.</span>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(0)">Atrás</button>
+      <button class="btn btn-primary" onclick="goToStep(2)">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PANTALLA 2: BLOQUE 1 — IDENTIDAD DEL NEGOCIO
+       ============================================ -->
+  <section class="screen" id="screen-step-2">
+    <div class="step-indicator">Paso 2 de 10 — Tu Negocio</div>
+    <h2 class="title-lg">¿Qué hace tu empresa?</h2>
+    <p class="text-secondary mb-3">Cuéntanos sobre tu marca, tu producto o servicio, y qué resultado le entregas a tus clientes.</p>
+
+    <div class="form-group">
+      <label class="label" for="p1">En 3-5 frases describe tu negocio: ¿qué vendes u ofreces? ¿A quién ayudas? ¿Qué resultado o transformación le entregas a tus clientes? <span class="required">*</span></label>
+      <textarea id="p1" data-required="true" rows="4" placeholder="Ej: Somos una tienda de ropa sostenible para mujeres profesionales entre 30 y 45 años. Vendemos piezas atemporales hechas con materiales reciclados. Ayudamos a nuestras clientas a vestir con estilo sin dañar el planeta."></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p2">¿Qué vendes exactamente? Detalla: producto o servicio, precio aproximado, duración (si aplica), qué incluye, resultado principal para el cliente y cómo se compra hoy. <span class="required">*</span></label>
+      <textarea id="p2" data-required="true" rows="5" placeholder="- Producto: Consultoría de nutrición personalizada&#10;- Precio: $150 USD al mes&#10;- Duración: Programa de 3 meses&#10;- Incluye: Plan alimenticio, seguimiento semanal por WhatsApp, recetario&#10;- Resultado: Bajar de peso sin dietas restrictivas&#10;- Canal de venta: Instagram DM y WhatsApp"></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(1)">Atrás</button>
+      <button class="btn btn-primary" onclick="goToStep(3)">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PANTALLA 3: BLOQUE 2 — AUDIENCIA IDEAL
+       ============================================ -->
+  <section class="screen" id="screen-step-3">
+    <div class="step-indicator">Paso 3 de 10 — Tu Cliente Ideal</div>
+    <h2 class="title-lg">¿Quién compra lo que vendes?</h2>
+    <p class="text-secondary mb-3">Ayúdanos a conocer a la persona que necesita tu producto o servicio. Cuéntanos quién es, qué le duele y qué le frena.</p>
+
+    <div class="form-group">
+      <label class="label" for="p3">Describe a tu cliente ideal como si fuera una persona real: edad, profesión, estilo de vida, dónde pasa tiempo online, qué le preocupa y qué está buscando. <span class="required">*</span></label>
+      <textarea id="p3" data-required="true" rows="5" placeholder="- Edad: 30-45 años&#10;- Profesión: Ejecutiva, mamá trabajadora o emprendedora&#10;- Estilo de vida: Busca calidad sobre cantidad, valora el tiempo&#10;- Online: Instagram, Pinterest, podcasts de negocios&#10;- Preocupación: No encuentra ropa cómoda y profesional a la vez&#10;- Busca: Soluciones rápidas sin sacrificar su imagen"></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p4">¿Qué problema o frustración tiene tu cliente ideal que tu producto o servicio resuelve? Sé concreto y describe una situación del día a día. <span class="required">*</span></label>
+      <textarea id="p4" data-required="true" rows="4" placeholder="Ej: Llega a casa cansada después del trabajo y no tiene tiempo ni energía para cocinar sano. Termina pidiendo comida rápida y se siente culpable."></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p5">¿Qué le impide a esa persona comprarte hoy? ¿Qué miedo, duda o barrera tiene antes de contratarte o comprarte? <span class="required">*</span></label>
+      <textarea id="p5" data-required="true" rows="4" placeholder="Ej: Le da miedo pagar por adelantado y que el servicio no funcione. También duda porque ya probó otras dietas y ninguna le resultó."></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(2)">Atrás</button>
+      <button class="btn btn-primary" onclick="goToStep(4)">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PANTALLA 4: BLOQUE 3 — DESEO, OBJETIVO Y TRANSFORMACIÓN
+       ============================================ -->
+  <section class="screen" id="screen-step-4">
+    <div class="step-indicator">Paso 4 de 10 — Metas y Transformación</div>
+    <h2 class="title-lg">¿Qué quieres lograr?</h2>
+    <p class="text-secondary mb-3">Definimos las metas de tu negocio y el resultado que buscas con Instagram.</p>
+
+    <div class="form-group">
+      <label class="label" for="p6">¿Qué resultado o transformación busca tu cliente ideal al comprarte? Más allá del producto: ¿qué siente, gana o logra? <span class="required">*</span></label>
+      <textarea id="p6" data-required="true" rows="4" placeholder="Ej: No solo baja de peso. Gana confianza, se siente cómoda con su cuerpo y puede vestir lo que quiera sin complejos."></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p7">¿Qué objetivo concreto quieres lograr con Instagram en los próximos 30-90 días? <span class="required">*</span></label>
+      <textarea id="p7" data-required="true" rows="3" placeholder="Ej: Generar 20 leads calificados por WhatsApp. Vender 5 membresías del gimnasio. Posicionar la marca como referente en mi ciudad."></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(3)">Atrás</button>
+      <button class="btn btn-primary" onclick="goToStep(5)">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PANTALLA 5: BLOQUE 4 — ERRORES Y CREENCIAS
+       ============================================ -->
+  <section class="screen" id="screen-step-5">
+    <div class="step-indicator">Paso 5 de 10 — Dudas del Cliente</div>
+    <h2 class="title-lg">¿Qué dudas tiene tu cliente antes de comprar?</h2>
+    <p class="text-secondary mb-3">Conocer las objeciones y malentendidos de tu audiencia nos ayuda a crear contenido que convenza.</p>
+
+    <div class="form-group">
+      <label class="label" for="p8">¿Qué errores o malas prácticas crees que comete tu cliente ideal antes de encontrarte? ¿Qué intentó antes que no le funcionó? <span class="required">*</span></label>
+      <textarea id="p8" data-required="true" rows="5" placeholder="1. Intentó hacer dieta por su cuenta y se frustró&#10;2. Probó un gimnasio genérico donde no la atendieron&#10;3. Compró ropa barata que no le duró y desperdició dinero"></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p9">¿Qué creencias tiene tu cliente sobre tu industria que le impiden comprar? ¿Qué mitos o excusas usa? <span class="required">*</span></label>
+      <textarea id="p9" data-required="true" rows="4" placeholder="Ej: 'Comer sano es caro.' 'Para estar en forma necesito ir al gimnasio 2 horas al día.' 'La ropa sostenible es aburrida.'"></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(4)">Atrás</button>
+      <button class="btn btn-primary" onclick="goToStep(6)">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PANTALLA 6: BLOQUE 5 — MARCA PERSONAL Y AUTORIDAD
+       ============================================ -->
+  <section class="screen" id="screen-step-6">
+    <div class="step-indicator">Paso 6 de 10 — Tu Marca</div>
+    <h2 class="title-lg">¿Por qué elegirte a ti y no a la competencia?</h2>
+    <p class="text-secondary mb-3">Cuéntanos qué te hace diferente y por qué tus clientes confían en tu negocio.</p>
+
+    <div class="form-group">
+      <label class="label" for="p10">¿Qué te diferencia de tus competidores? ¿Cuál es tu ventaja, experiencia, método o historia que hace que tu cliente te prefiera? <span class="required">*</span></label>
+      <textarea id="p10" data-required="true" rows="5" placeholder="- Soy nutricionista certificada con 8 años de experiencia&#10- Mi método no es restrictivo, es sostenible&#10- He atendido a más de 500 pacientes&#10- Diferencia: personalizo cada plan, no doy dietas genéricas&#10- Filosofía: El cambio empieza por hábitos, no por culpa"></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p11">¿Tienes testimonios, reseñas, casos de éxito o resultados que puedas compartir? Describe brevemente los más relevantes.</label>
+      <textarea id="p11" rows="4" placeholder="Ej: 'Con la nutricionista María bajé 8 kilos en 3 meses sin pasar hambre.' 'La ropa sigue igual de linda después de 20 lavados.'"></textarea>
+      <span class="hint">Opcional pero muy valioso para crear contenido de prueba social.</span>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(5)">Atrás</button>
+      <button class="btn btn-primary" onclick="goToStep(7)">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PANTALLA 7: BLOQUE 6 — INSTAGRAM ACTUAL
+       ============================================ -->
+  <section class="screen" id="screen-step-7">
+    <div class="step-indicator">Paso 7 de 10 — Tu Instagram Hoy</div>
+    <h2 class="title-lg">¿Cómo está tu Instagram actualmente?</h2>
+    <p class="text-secondary mb-3">Necesitamos conocer el punto de partida de tu cuenta para diseñar el plan adecuado.</p>
+
+    <div class="form-group">
+      <label class="label" for="p12a">Usuario o nombre de cuenta de Instagram de tu negocio</label>
+      <input type="text" id="p12a" placeholder="Ej: @tumarca">
+      <span class="hint">Opcional.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p12b">Número aproximado de seguidores</label>
+      <input type="text" id="p12b" placeholder="Ej: 2,400">
+      <span class="hint">Opcional.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p12c">¿Con qué frecuencia publicas hoy en Instagram? <span class="required">*</span></label>
+      <select id="p12c" data-required="true">
+        <option value="">Selecciona una opción</option>
+        <option value="Todos los días">Todos los días</option>
+        <option value="3-5 veces por semana">3-5 veces por semana</option>
+        <option value="1-2 veces por semana">1-2 veces por semana</option>
+        <option value="1-3 veces por mes">1-3 veces por mes</option>
+        <option value="Casi nunca">Casi nunca</option>
+      </select>
+      <span class="error-msg">Selecciona una opción.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p12d">¿Qué tipo de contenido publicas actualmente? <span class="required">*</span></label>
+      <textarea id="p12d" data-required="true" rows="3" placeholder="Ej: Fotos de producto, Reels de procesos, stories del día a día, carruseles de tips."></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p12e">¿Qué publicaciones o contenido te han funcionado mejor? ¿Y qué sientes que no funciona? <span class="required">*</span></label>
+      <textarea id="p12e" data-required="true" rows="4" placeholder="Funciona: Videos mostrando el detrás de cámara de cómo hago los productos.&#10;No funciona: Fotos planas del producto sin contexto."></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p12f">¿Conoces tus métricas aproximadas? (visualizaciones, comentarios, guardados)</label>
+      <input type="text" id="p12f" placeholder="Ej: 500 vistas, 5 comentarios, 10 guardados por Reel">
+      <span class="hint">Opcional. No pasa nada si no las sabes.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p12g">¿Recibes mensajes directos (DMs) o consultas por Instagram? <span class="required">*</span></label>
+      <select id="p12g" data-required="true">
+        <option value="">Selecciona una opción</option>
+        <option value="Sí, regularmente">Sí, regularmente</option>
+        <option value="Sí, pero pocos">Sí, pero pocos</option>
+        <option value="Casi nunca">Casi nunca</option>
+        <option value="Nunca">Nunca</option>
+      </select>
+      <span class="error-msg">Selecciona una opción.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p13">¿Cuál es el mayor problema o frustración que tienes con Instagram hoy? <span class="required">*</span></label>
+      <select id="p13" data-required="true" onchange="toggleOther('p13','p13-other')">
+        <option value="">Selecciona el más importante</option>
+        <option value="No sé qué publicar">No sé qué publicar</option>
+        <option value="No crezco">No crezco / Nadie me ve</option>
+        <option value="Tengo alcance, pero no vendo">Tengo alcance, pero no vendo</option>
+        <option value="Tengo seguidores, pero poca interacción">Tengo seguidores, pero poca interacción</option>
+        <option value="No sé grabar Reels">No sé grabar Reels o videos</option>
+        <option value="No sé crear hooks">No sé crear títulos o textos que enganchen</option>
+        <option value="No sé convertir por DM">No sé convertir mensajes en ventas</option>
+        <option value="No tengo oferta clara">No tengo una oferta clara en Instagram</option>
+        <option value="No sé medir resultados">No sé si lo que hago funciona</option>
+        <option value="No tengo tiempo para crear contenido">No tengo tiempo para crear contenido</option>
+        <option value="Otro">Otro (especificar)</option>
+      </select>
+      <input type="text" id="p13-other" class="hidden" style="margin-top:8px;" placeholder="Describe tu problema">
+      <span class="error-msg">Selecciona una opción.</span>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(6)">Atrás</button>
+      <button class="btn btn-primary" onclick="goToStep(8)">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PANTALLA 8: BLOQUE 7 — CAPACIDAD DE PRODUCCIÓN
+       ============================================ -->
+  <section class="screen" id="screen-step-8">
+    <div class="step-indicator">Paso 8 de 10 — Recursos y Capacidad</div>
+    <h2 class="title-lg">¿Qué dispones hoy para crear contenido?</h2>
+    <p class="text-secondary mb-3">La estrategia se ajusta a lo que realmente puedes hacer, no a lo ideal.</p>
+
+    <div class="form-group">
+      <label class="label" for="p14">¿Cuánto contenido puedes producir o aprobar por semana? ¿Tienes tiempo para grabar videos? ¿Alguien te ayuda? ¿Cuántas horas semanales puedes dedicar? <span class="required">*</span></label>
+      <textarea id="p14" data-required="true" rows="6" placeholder="- Reels: Puedo grabar 2 por semana&#10;- Fotos: Tengo un fotógrafo una vez al mes&#10;- Stories: Puedo publicar 2-3 al día&#10- ¿Apareces en cámara?: Sí, me siento cómodo&#10- Equipo: Teléfono y Canva&#10- Tiempo semanal: 4 horas entre grabar y aprobar"></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label">¿Qué herramientas o recursos digitales tiene tu negocio hoy? (Marca todos los que apliquen)</label>
+      <div class="checkbox-group">
+        <label class="checkbox-item"><input type="checkbox" name="p15" value="Web"><span>Sitio web</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p15" value="Landing page"><span>Landing page</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p15" value="Lista de email"><span>Lista de correos / Newsletter</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p15" value="WhatsApp Business"><span>WhatsApp Business</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p15" value="Automatización de DM"><span>Respuestas automáticas en Instagram</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p15" value="Lead magnet"><span>Guía gratuita o recurso para descargar</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p15" value="Testimonios"><span>Testimonios o reseñas de clientes</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p15" value="Presupuesto para anuncios"><span>Presupuesto para anuncios pagados</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p15" value="Meta Pixel instalado"><span>Meta Pixel instalado en la web</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p15" value="Catálogo o tienda"><span>Catálogo de productos o tienda online</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p15" value="CRM"><span>CRM o base de datos de clientes</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p15" value="Calendario de contenidos"><span>Calendario de contenidos</span></label>
+      </div>
+      <span class="hint">Opcional. Selecciona todo lo que tengas.</span>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(7)">Atrás</button>
+      <button class="btn btn-primary" onclick="goToStep(9)">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PANTALLA 9: BLOQUE 8 — ESTILO, TONO Y CONVERSIÓN
+       ============================================ -->
+  <section class="screen" id="screen-step-9">
+    <div class="step-indicator">Paso 9 de 10 — Personalidad de Marca</div>
+    <h2 class="title-lg">¿Cómo quieres que suene tu marca?</h2>
+    <p class="text-secondary mb-3">Definimos la voz de tu negocio y qué acción esperas de tus seguidores.</p>
+
+    <div class="form-group">
+      <label class="label" for="p16">¿Cómo quieres que se sienta tu marca en Instagram? Describe el tono y la personalidad. ¿Hay algo que NO quieres que se asocie contigo? <span class="required">*</span></label>
+      <textarea id="p16" data-required="true" rows="4" placeholder="Sí: Cercana, profesional pero sin ser fría, que transmita confianza.&#10;NO: Agresiva de ventas, cursi, o que parezca un robot corporativo."></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p17">¿Qué quieres que haga una persona después de ver tu contenido? ¿Cuál es la acción más importante para tu negocio? <span class="required">*</span></label>
+      <textarea id="p17" data-required="true" rows="3" placeholder="Ej: Que me escriba por DM para pedir una cotización. Que visite la tienda. Que agende una cita de valoración."></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p18">¿Tienes una frase o llamado a la acción (CTA) que ya uses? ¿O tienes una en mente? <span class="required">*</span></label>
+      <textarea id="p18" data-required="true" rows="3" placeholder="Ej: 'Escríbenos al DM para recibir tu presupuesto personalizado.' 'Haz clic en el link de la bio para agendar tu cita.'"></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(8)">Atrás</button>
+      <button class="btn btn-primary" onclick="goToStep(10)">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PANTALLA 10: BLOQUE 9 — PUBLICIDAD Y PRESUPUESTO
+       ============================================ -->
+  <section class="screen" id="screen-step-10">
+    <div class="step-indicator">Paso 10 de 10 — Publicidad y Presupuesto</div>
+    <h2 class="title-lg">¿Quieres invertir en anuncios?</h2>
+    <p class="text-secondary mb-3">Determinamos si la estrategia será orgánica, híbrida o con inversión en publicidad pagada.</p>
+
+    <div class="form-group">
+      <label class="label" for="p19">¿Estás dispuesto a invertir en anuncios pagados de Meta (Instagram/Facebook) para acelerar resultados? <span class="required">*</span></label>
+      <select id="p19" data-required="true" onchange="toggleAdsFields()">
+        <option value="">Selecciona una opción</option>
+        <option value="No por ahora, solo orgánico">No por ahora, quiero empezar solo con contenido orgánico</option>
+        <option value="Sí, con presupuesto pequeño">Sí, puedo invertir un presupuesto pequeño</option>
+        <option value="Sí, con presupuesto medio">Sí, tengo presupuesto medio disponible</option>
+        <option value="Sí, con presupuesto agresivo">Sí, quiero invertir de forma agresiva para escalar</option>
+        <option value="No estoy seguro">No estoy seguro, necesito asesoría</option>
+      </select>
+      <span class="error-msg">Selecciona una opción.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p19-budget">Si planeas anuncios, ¿cuál sería tu presupuesto mensual estimado?</label>
+      <input type="text" id="p19-budget" placeholder="Ej: $300 USD mensuales">
+      <span class="hint">Opcional. No pasa nada si aún no lo sabes.</span>
+    </div>
+
+    <div class="form-group hidden" id="p20-wrapper">
+      <label class="label" for="p20">¿Cuál es el objetivo principal que buscas con la publicidad pagada? <span class="required" id="p20-req" style="display:none;">*</span></label>
+      <select id="p20">
+        <option value="">Selecciona un objetivo</option>
+        <option value="Reconocimiento de marca">Que más personas conozcan mi marca</option>
+        <option value="Más visitas al perfil">Que visiten mi perfil de Instagram</option>
+        <option value="Más tráfico a una web">Que visiten mi sitio web o tienda</option>
+        <option value="Más mensajes por Instagram">Que me escriban mensajes directos por Instagram</option>
+        <option value="Más mensajes por WhatsApp">Que me escriban por WhatsApp</option>
+        <option value="Más leads">Conseguir leads (correos o datos de contacto)</option>
+        <option value="Más ventas">Generar ventas directas</option>
+        <option value="Retargeting">Volver a contactar personas que ya interactuaron</option>
+        <option value="Promocionar un Reel ganador">Impulsar una publicación que ya funciona</option>
+        <option value="Lanzar un curso, mentoría o producto">Promocionar un lanzamiento específico</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <span class="error-msg">Selecciona un objetivo.</span>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(9)">Atrás</button>
+      <button class="btn btn-primary" onclick="goToStep(11)">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PANTALLA 11: BLOQUE 10 — INFRAESTRUCTURA Y MEDICIÓN
+       ============================================ -->
+  <section class="screen" id="screen-step-11">
+    <div class="step-indicator">Paso 10 de 10 — Medición y Éxito</div>
+    <h2 class="title-lg">¿Cómo sabremos que funciona?</h2>
+    <p class="text-secondary mb-3">Último paso: definimos qué herramientas tienes y qué resultado consideras éxito.</p>
+
+    <div class="form-group">
+      <label class="label">¿Qué herramientas de seguimiento o medición tienes hoy? Marca todo lo que apliquen:</label>
+      <div class="checkbox-group">
+        <label class="checkbox-item"><input type="checkbox" name="p21" value="Estadísticas de Instagram"><span>Estadísticas nativas de Instagram</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p21" value="Meta Business Suite"><span>Meta Business Suite</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p21" value="Meta Ads Manager"><span>Meta Ads Manager</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p21" value="Landing page con analítica"><span>Landing page con analítica</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p21" value="Google Analytics"><span>Google Analytics</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p21" value="Pixel instalado"><span>Meta Pixel instalado</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p21" value="Eventos de conversión"><span>Seguimiento de eventos de conversión</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p21" value="CRM"><span>CRM o base de datos</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p21" value="Hoja de seguimiento"><span>Hoja de seguimiento (Excel/Google Sheets)</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="p21" value="Registro manual"><span>Llevo registro manual de ventas y consultas</span></label>
+      </div>
+      <span class="hint">Opcional. No pasa nada si no tienes ninguna aún.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p22">Si solo pudieras medir UNA cosa en Instagram, ¿cuál sería? <span class="required">*</span></label>
+      <select id="p22" data-required="true" onchange="toggleOther('p22','p22-other')">
+        <option value="">Selecciona la más importante para tu negocio</option>
+        <option value="Alcance">Que más personas me vean (alcance)</option>
+        <option value="Seguidores">Que crezca mi comunidad (seguidores)</option>
+        <option value="Interacción">Que interactúen con mis publicaciones</option>
+        <option value="Guardados">Que guarden mis publicaciones</option>
+        <option value="Compartidos">Que compartan mi contenido</option>
+        <option value="DMs">Que me escriban mensajes directos</option>
+        <option value="Leads">Que consiga datos de contacto de clientes potenciales</option>
+        <option value="Ventas">Que vendan directamente</option>
+        <option value="Citas agendadas">Que agenden citas o reservas</option>
+        <option value="Tráfico web">Que visiten mi web o tienda</option>
+        <option value="Comunidad">Que se sientan parte de una comunidad</option>
+        <option value="Autoridad">Que me reconozcan como referente</option>
+        <option value="Retención">Que los clientes vuelvan a comprar</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <input type="text" id="p22-other" class="hidden" style="margin-top:8px;" placeholder="Especifica qué medirías">
+      <span class="error-msg">Selecciona una métrica.</span>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(10)">Atrás</button>
+      <button class="btn btn-primary" onclick="goToSummary()">Revisar y finalizar</button>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PANTALLA 12: RESUMEN
+       ============================================ -->
+  <section class="screen" id="screen-summary">
+    <h2 class="title-lg text-center">Revisa tu briefing</h2>
+    <p class="text-secondary text-center mb-3">Verifica que toda la información de tu negocio esté correcta. Puedes editar cualquier bloque antes de enviarlo.</p>
+
+    <div id="summary-content"></div>
+
+    <div class="btn-group" style="margin-top:32px;">
+      <button class="btn btn-secondary" onclick="goToStep(11)">Atrás</button>
+      <button class="btn btn-outline" onclick="downloadTXT()">Descargar .TXT</button>
+      <button class="btn btn-primary" onclick="downloadPDF()">Descargar PDF</button>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PANTALLA 13: CONFIRMACIÓN
+       ============================================ -->
+  <section class="screen" id="screen-success">
+    <div class="success-screen">
+      <div class="success-icon">&#10003;</div>
+      <h2 class="title-lg">¡Briefing completado!</h2>
+      <p class="text-secondary mb-3">
+        Tu documento ha sido descargado.<br>
+        Ahora envíaselo a tu asesor de <strong>Startmotif</strong> por WhatsApp o email<br>
+        para que diseñe tu estrategia personalizada.
+      </p>
+      <div class="btn-group" style="justify-content:center; flex-direction:column; align-items:center;">
+        <a id="whatsapp-link" href="#" target="_blank" class="btn btn-lg whatsapp-btn" style="width:100%; max-width:320px;">
+          &#128242; Enviar por WhatsApp
+        </a>
+        <button class="btn btn-secondary" style="width:100%; max-width:320px;" onclick="location.reload()">Comenzar nuevo briefing</button>
+      </div>
+      <p class="text-muted" style="margin-top:24px;">
+        Gracias por confiar en <strong>Startmotif</strong>.
+      </p>
+      <img src="assets/logo-footer.png" alt="Startmotif" style="height:24px; margin-top:16px; opacity:0.7;">
+    </div>
+  </section>
+
+</div><!-- /app-container -->
+
+<!-- ============================================
+     CONTENIDO OCULTO PARA PDF
+     ============================================ -->
+<div id="pdf-content" class="pdf-content">
+  <div class="pdf-header">
+    <img src="assets/logo-pdf.png" alt="Startmotif">
+    <h1>Briefing Estratégico de Instagram</h1>
+    <p id="pdf-date"></p>
+  </div>
+  <div id="pdf-body"></div>
+  <div class="pdf-footer">
+    Generado por Startmotif — Estrategia Instagram Pro<br>
+    www.startmotif.com
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
