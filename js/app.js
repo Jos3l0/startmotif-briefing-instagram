@@ -6,25 +6,25 @@
 // ============================================
 // CONFIGURACIÓN
 // ============================================
-const TOTAL_STEPS = 11; // 0 welcome + 10 bloques + summary + success
-let currentStep = 0;
+const TOTAL_STEPS = 12; // 0 welcome + 11 bloques + summary + success
 
 // Mapeo de pasos a IDs de pantallas
 const SCREENS = [
-  'screen-welcome',
-  'screen-step-1',
-  'screen-step-2',
-  'screen-step-3',
-  'screen-step-4',
-  'screen-step-5',
-  'screen-step-6',
-  'screen-step-7',
-  'screen-step-8',
-  'screen-step-9',
-  'screen-step-10',
-  'screen-step-11',
-  'screen-summary',
-  'screen-success'
+  'screen-welcome',     // 0
+  'screen-step-1',      // 1
+  'screen-step-2',      // 2
+  'screen-step-3',      // 3
+  'screen-step-4',      // 4
+  'screen-step-5',      // 5
+  'screen-step-6',      // 6
+  'screen-step-7',      // 7
+  'screen-step-8',      // 8
+  'screen-step-9',      // 9
+  'screen-step-geo',    // 10 - NUEVO: Geolocalización
+  'screen-step-10',     // 11
+  'screen-step-11',     // 12
+  'screen-summary',     // 13
+  'screen-success'      // 14
 ];
 
 // Definición de bloques para el resumen
@@ -110,8 +110,22 @@ const BLOCKS = [
     ]
   },
   {
-    title: 'Bloque 9: Publicidad y Presupuesto',
+    title: 'Bloque 9: Ubicación y Cobertura',
     step: 10,
+    fields: [
+      { id: 'p19a-tipo-negocio', label: 'Tipo de operación (físico/online/ambas)' },
+      { id: 'p19b-local-fisico', label: 'Local físico' },
+      { id: 'p19c-direccion', label: 'Dirección específica' },
+      { id: 'p19d-cp', label: 'Código postal' },
+      { id: 'p19e-sucursales', label: 'Sucursales adicionales' },
+      { id: 'p19f-radio', label: 'Radio de alcance' },
+      { id: 'p19h-envios', label: 'Envíos' },
+      { id: 'p19g-zonas-ads', label: 'Zonas geográficas para anuncios' }
+    ]
+  },
+  {
+    title: 'Bloque 10: Publicidad y Presupuesto',
+    step: 11,
     fields: [
       { id: 'p19', label: 'Inversión en anuncios' },
       { id: 'p19-budget', label: 'Presupuesto mensual estimado' },
@@ -119,8 +133,8 @@ const BLOCKS = [
     ]
   },
   {
-    title: 'Bloque 10: Medición y Éxito',
-    step: 11,
+    title: 'Bloque 11: Medición y Éxito',
+    step: 12,
     fields: [
       { id: 'p21', label: 'Herramientas de seguimiento', type: 'checkbox', name: 'p21' },
       { id: 'p22', label: 'Métrica más importante', other: 'p22-other' }
@@ -156,7 +170,7 @@ function goToStep(step) {
 
 function updateHeader() {
   const header = document.getElementById('main-header');
-  if (currentStep === 0 || currentStep >= 12) {
+  if (currentStep === 0 || currentStep >= 13) {
     header.style.display = 'none';
   } else {
     header.style.display = 'flex';
@@ -164,8 +178,8 @@ function updateHeader() {
 }
 
 function updateProgress() {
-  if (currentStep >= 1 && currentStep <= 11) {
-    const pct = Math.round(((currentStep - 1) / 10) * 100);
+  if (currentStep >= 1 && currentStep <= 12) {
+    const pct = Math.round(((currentStep - 1) / 11) * 100);
     document.getElementById('progress-fill').style.width = pct + '%';
     document.getElementById('progress-text').textContent = pct + '% completado';
   }
@@ -256,6 +270,66 @@ function toggleOther(selectId, otherId) {
   } else {
     other.classList.add('hidden');
     other.value = '';
+  }
+}
+
+function toggleGeoFields() {
+  const tipo = document.getElementById('p19a-tipo-negocio').value;
+  const localWrapper = document.getElementById('geo-local-wrapper');
+  const dirWrapper = document.getElementById('geo-direccion-wrapper');
+  const cpWrapper = document.getElementById('geo-cp-wrapper');
+  const sucWrapper = document.getElementById('geo-sucursales-wrapper');
+  const radioWrapper = document.getElementById('geo-radio-wrapper');
+  const enviosWrapper = document.getElementById('geo-envios-wrapper');
+  const localField = document.getElementById('p19b-local-fisico');
+  const radioField = document.getElementById('p19f-radio');
+
+  if (tipo === 'Local físico con atención presencial') {
+    // Mostrar campos físicos, ocultar envíos
+    localWrapper.classList.remove('hidden');
+    dirWrapper.classList.remove('hidden');
+    cpWrapper.classList.remove('hidden');
+    sucWrapper.classList.remove('hidden');
+    radioWrapper.classList.remove('hidden');
+    enviosWrapper.classList.add('hidden');
+    localField.setAttribute('data-required', 'true');
+    radioField.setAttribute('data-required', 'true');
+  } else if (tipo === 'Solo online (servicios/envíos virtuales)') {
+    // Ocultar campos físicos, mostrar envíos
+    localWrapper.classList.add('hidden');
+    dirWrapper.classList.add('hidden');
+    cpWrapper.classList.add('hidden');
+    sucWrapper.classList.add('hidden');
+    radioWrapper.classList.add('hidden');
+    enviosWrapper.classList.remove('hidden');
+    localField.removeAttribute('data-required');
+    radioField.removeAttribute('data-required');
+    // Limpiar campos ocultos
+    localField.value = '';
+    radioField.value = '';
+    document.getElementById('p19c-direccion').value = '';
+    document.getElementById('p19d-cp').value = '';
+    document.getElementById('p19e-sucursales').value = '';
+  } else if (tipo === 'Ambas (local físico + online)') {
+    // Mostrar todos
+    localWrapper.classList.remove('hidden');
+    dirWrapper.classList.remove('hidden');
+    cpWrapper.classList.remove('hidden');
+    sucWrapper.classList.remove('hidden');
+    radioWrapper.classList.remove('hidden');
+    enviosWrapper.classList.remove('hidden');
+    localField.setAttribute('data-required', 'true');
+    radioField.setAttribute('data-required', 'true');
+  } else {
+    // Sin selección: ocultar todos los condicionales
+    localWrapper.classList.add('hidden');
+    dirWrapper.classList.add('hidden');
+    cpWrapper.classList.add('hidden');
+    sucWrapper.classList.add('hidden');
+    radioWrapper.classList.add('hidden');
+    enviosWrapper.classList.add('hidden');
+    localField.removeAttribute('data-required');
+    radioField.removeAttribute('data-required');
   }
 }
 

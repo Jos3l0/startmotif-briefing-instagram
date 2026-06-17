@@ -67,7 +67,7 @@
        PANTALLA 1: DATOS DE CONTACTO + BLOQUE 1
        ============================================ -->
   <section class="screen" id="screen-step-1">
-    <div class="step-indicator">Paso 1 de 10 — Tus datos</div>
+    <div class="step-indicator">Paso 1 de 11 — Tus datos</div>
     <h2 class="title-lg">¿Quién eres?</h2>
     <p class="text-secondary mb-3">Datos de contacto del responsable del negocio.</p>
 
@@ -93,7 +93,7 @@
        PANTALLA 2: BLOQUE 1 — IDENTIDAD DEL NEGOCIO
        ============================================ -->
   <section class="screen" id="screen-step-2">
-    <div class="step-indicator">Paso 2 de 10 — Tu Negocio</div>
+    <div class="step-indicator">Paso 2 de 11 — Tu Negocio</div>
     <h2 class="title-lg">¿Qué hace tu empresa?</h2>
     <p class="text-secondary mb-3">Cuéntanos sobre tu marca, tu producto o servicio, y qué resultado le entregas a tus clientes.</p>
 
@@ -119,7 +119,7 @@
        PANTALLA 3: BLOQUE 2 — AUDIENCIA IDEAL
        ============================================ -->
   <section class="screen" id="screen-step-3">
-    <div class="step-indicator">Paso 3 de 10 — Tu Cliente Ideal</div>
+    <div class="step-indicator">Paso 3 de 11 — Tu Cliente Ideal</div>
     <h2 class="title-lg">¿Quién compra lo que vendes?</h2>
     <p class="text-secondary mb-3">Ayúdanos a conocer a la persona que necesita tu producto o servicio. Cuéntanos quién es, qué le duele y qué le frena.</p>
 
@@ -151,7 +151,7 @@
        PANTALLA 4: BLOQUE 3 — DESEO, OBJETIVO Y TRANSFORMACIÓN
        ============================================ -->
   <section class="screen" id="screen-step-4">
-    <div class="step-indicator">Paso 4 de 10 — Metas y Transformación</div>
+    <div class="step-indicator">Paso 4 de 11 — Metas y Transformación</div>
     <h2 class="title-lg">¿Qué quieres lograr?</h2>
     <p class="text-secondary mb-3">Definimos las metas de tu negocio y el resultado que buscas con Instagram.</p>
 
@@ -177,7 +177,7 @@
        PANTALLA 5: BLOQUE 4 — ERRORES Y CREENCIAS
        ============================================ -->
   <section class="screen" id="screen-step-5">
-    <div class="step-indicator">Paso 5 de 10 — Dudas del Cliente</div>
+    <div class="step-indicator">Paso 5 de 11 — Dudas del Cliente</div>
     <h2 class="title-lg">¿Qué dudas tiene tu cliente antes de comprar?</h2>
     <p class="text-secondary mb-3">Conocer las objeciones y malentendidos de tu audiencia nos ayuda a crear contenido que convenza.</p>
 
@@ -203,7 +203,7 @@
        PANTALLA 6: BLOQUE 5 — MARCA PERSONAL Y AUTORIDAD
        ============================================ -->
   <section class="screen" id="screen-step-6">
-    <div class="step-indicator">Paso 6 de 10 — Tu Marca</div>
+    <div class="step-indicator">Paso 6 de 11 — Tu Marca</div>
     <h2 class="title-lg">¿Por qué elegirte a ti y no a la competencia?</h2>
     <p class="text-secondary mb-3">Cuéntanos qué te hace diferente y por qué tus clientes confían en tu negocio.</p>
 
@@ -229,7 +229,7 @@
        PANTALLA 7: BLOQUE 6 — INSTAGRAM ACTUAL
        ============================================ -->
   <section class="screen" id="screen-step-7">
-    <div class="step-indicator">Paso 7 de 10 — Tu Instagram Hoy</div>
+    <div class="step-indicator">Paso 7 de 11 — Tu Instagram Hoy</div>
     <h2 class="title-lg">¿Cómo está tu Instagram actualmente?</h2>
     <p class="text-secondary mb-3">Necesitamos conocer el punto de partida de tu cuenta para diseñar el plan adecuado.</p>
 
@@ -318,7 +318,7 @@
        PANTALLA 8: BLOQUE 7 — CAPACIDAD DE PRODUCCIÓN
        ============================================ -->
   <section class="screen" id="screen-step-8">
-    <div class="step-indicator">Paso 8 de 10 — Recursos y Capacidad</div>
+    <div class="step-indicator">Paso 8 de 11 — Recursos y Capacidad</div>
     <h2 class="title-lg">¿Qué dispones hoy para crear contenido?</h2>
     <p class="text-secondary mb-3">La estrategia se ajusta a lo que realmente puedes hacer, no a lo ideal.</p>
 
@@ -357,7 +357,7 @@
        PANTALLA 9: BLOQUE 8 — ESTILO, TONO Y CONVERSIÓN
        ============================================ -->
   <section class="screen" id="screen-step-9">
-    <div class="step-indicator">Paso 9 de 10 — Personalidad de Marca</div>
+    <div class="step-indicator">Paso 9 de 11 — Personalidad de Marca</div>
     <h2 class="title-lg">¿Cómo quieres que suene tu marca?</h2>
     <p class="text-secondary mb-3">Definimos la voz de tu negocio y qué acción esperas de tus seguidores.</p>
 
@@ -386,10 +386,77 @@
   </section>
 
   <!-- ============================================
-       PANTALLA 10: BLOQUE 9 — PUBLICIDAD Y PRESUPUESTO
+       PANTALLA 10 (NUEVO): UBICACIÓN Y COBERTURA GEOGRÁFICA
+       ============================================ -->
+  <section class="screen" id="screen-step-geo">
+    <div class="step-indicator">Paso 10 de 11 — Ubicación y Cobertura</div>
+    <h2 class="title-lg">¿Dónde está tu negocio?</h2>
+    <p class="text-secondary mb-3">Definimos tu ubicación física, tu radio de alcance y las zonas donde quieres aparecer.</p>
+
+    <div class="form-group">
+      <label class="label" for="p19a-tipo-negocio">¿Tu negocio opera de forma física, online o ambas? <span class="required">*</span></label>
+      <select id="p19a-tipo-negocio" data-required="true" onchange="toggleGeoFields()">
+        <option value="">Selecciona una opción</option>
+        <option value="Local físico con atención presencial">Local físico con atención presencial</option>
+        <option value="Solo online (servicios/envíos virtuales)">Solo online (servicios/envíos virtuales)</option>
+        <option value="Ambas (local físico + online)">Ambas (local físico + online)</option>
+      </select>
+      <span class="error-msg">Selecciona una opción.</span>
+    </div>
+
+    <div class="form-group" id="geo-local-wrapper">
+      <label class="label" for="p19b-local-fisico">¿Tienes un local, tienda u oficina física? ¿Dónde está? <span class="required">*</span></label>
+      <textarea id="p19b-local-fisico" rows="3" placeholder="Ej: Sí, en Avenida San Martín 123, Ciudad de Mendoza, Argentina."></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="form-group" id="geo-direccion-wrapper">
+      <label class="label" for="p19c-direccion">Dirección específica del local (calle, número, ciudad)</label>
+      <input type="text" id="p19c-direccion" placeholder="Ej: Av. San Martín 123, Mendoza">
+      <span class="hint">Opcional pero útil para anuncios locales.</span>
+    </div>
+
+    <div class="form-group" id="geo-cp-wrapper">
+      <label class="label" for="p19d-cp">Código postal</label>
+      <input type="text" id="p19d-cp" placeholder="Ej: 5500">
+      <span class="hint">Opcional.</span>
+    </div>
+
+    <div class="form-group" id="geo-sucursales-wrapper">
+      <label class="label" for="p19e-sucursales">¿Tienes múltiples sucursales o locales? ¿Dónde?</label>
+      <textarea id="p19e-sucursales" rows="3" placeholder="Ej: Sí, tengo dos locales: uno en Mendoza capital y otro en Godoy Cruz, calle Las Heras 456."></textarea>
+      <span class="hint">Opcional.</span>
+    </div>
+
+    <div class="form-group" id="geo-radio-wrapper">
+      <label class="label" for="p19f-radio">¿Cuál es tu radio de alcance de atención? <span class="required">*</span></label>
+      <input type="text" id="p19f-radio" data-required="true" placeholder="Ej: 15 km alrededor del centro de Mendoza. Atiendo solo en la capital y alrededores.">
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="form-group" id="geo-envios-wrapper">
+      <label class="label" for="p19h-envios">¿Haces envíos? ¿A dónde?</label>
+      <textarea id="p19h-envios" rows="3" placeholder="Ej: Sí, hago envíos a todo el país por correo argentino. También entregas personales en Mendoza capital."></textarea>
+      <span class="hint">Opcional.</span>
+    </div>
+
+    <div class="form-group">
+      <label class="label" for="p19g-zonas-ads">¿En qué ciudades, provincias, zonas o países quieres que aparezcan tus anuncios de Instagram? <span class="required">*</span></label>
+      <textarea id="p19g-zonas-ads" data-required="true" rows="4" placeholder="Ej: Mendoza capital, Godoy Cruz, Maipú. También considero San Juan como expansión futura."></textarea>
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(9)">Atrás</button>
+      <button class="btn btn-primary" onclick="goToStep(11)">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PANTALLA 11: BLOQUE 9 — PUBLICIDAD Y PRESUPUESTO
        ============================================ -->
   <section class="screen" id="screen-step-10">
-    <div class="step-indicator">Paso 10 de 10 — Publicidad y Presupuesto</div>
+    <div class="step-indicator">Paso 11 de 11 — Publicidad y Presupuesto</div>
     <h2 class="title-lg">¿Quieres invertir en anuncios?</h2>
     <p class="text-secondary mb-3">Determinamos si la estrategia será orgánica, híbrida o con inversión en publicidad pagada.</p>
 
@@ -432,16 +499,16 @@
     </div>
 
     <div class="btn-group">
-      <button class="btn btn-secondary" onclick="goToStep(9)">Atrás</button>
-      <button class="btn btn-primary" onclick="goToStep(11)">Continuar</button>
+      <button class="btn btn-secondary" onclick="goToStep(10)">Atrás</button>
+      <button class="btn btn-primary" onclick="goToStep(12)">Continuar</button>
     </div>
   </section>
 
   <!-- ============================================
-       PANTALLA 11: BLOQUE 10 — INFRAESTRUCTURA Y MEDICIÓN
+       PANTALLA 12: BLOQUE 10 — INFRAESTRUCTURA Y MEDICIÓN
        ============================================ -->
   <section class="screen" id="screen-step-11">
-    <div class="step-indicator">Paso 10 de 10 — Medición y Éxito</div>
+    <div class="step-indicator">Paso 11 de 11 — Medición y Éxito</div>
     <h2 class="title-lg">¿Cómo sabremos que funciona?</h2>
     <p class="text-secondary mb-3">Último paso: definimos qué herramientas tienes y qué resultado consideras éxito.</p>
 
@@ -486,7 +553,7 @@
     </div>
 
     <div class="btn-group">
-      <button class="btn btn-secondary" onclick="goToStep(10)">Atrás</button>
+      <button class="btn btn-secondary" onclick="goToStep(11)">Atrás</button>
       <button class="btn btn-primary" onclick="goToSummary()">Revisar y finalizar</button>
     </div>
   </section>
