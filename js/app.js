@@ -337,7 +337,8 @@ function toggleGeoFields() {
 // RESUMEN
 // ============================================
 function goToSummary() {
-  if (!validateStep(11)) return;
+  // Validar el paso actual (Medición, índice 12 en SCREENS)
+  if (!validateStep(12)) return;
 
   // Construir resumen
   const container = document.getElementById('summary-content');
@@ -387,7 +388,7 @@ function goToSummary() {
     if (first) first.classList.add('open');
   }, 50);
 
-  goToStep(12);
+  goToStep(13);
 }
 
 function toggleSummary(idx) {

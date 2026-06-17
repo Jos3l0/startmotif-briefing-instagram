@@ -600,20 +600,28 @@ select option {
   margin: 0 auto;
 }
 
-.pdf-content * {
-  color: #111 !important;
+.pdf-content {
+  color: #111;
+}
+
+.pdf-content .pdf-header,
+.pdf-content .pdf-header * {
+  color: #fff !important;
 }
 
 .pdf-header {
   text-align: center;
   margin-bottom: 40px;
-  padding-bottom: 30px;
-  border-bottom: 2px solid #e5e5e5;
+  padding: 30px;
+  background: #0a0a0a;
+  border-radius: 12px;
 }
 
 .pdf-header img {
-  height: 50px;
+  width: 80px;
+  height: 80px;
   margin-bottom: 16px;
+  border-radius: 16px;
 }
 
 .pdf-header h1 {
