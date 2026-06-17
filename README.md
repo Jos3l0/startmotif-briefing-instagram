@@ -1,24 +1,42 @@
-# Startmotif — Briefing Estratégico Instagram
+# Startmotif — Briefing Estrategico Instagram
 
-Herramienta web estática (HTML+CSS+JS) para que clientes de Startmotif completen un briefing estratégico de 22 preguntas sobre su negocio, producto, cliente ideal y metas en Instagram.
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Activo-success?logo=github)](https://jos3l0.github.io/startmotif-briefing-instagram/)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)]()
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)]()
 
----
-
-## ¿Qué hace esta herramienta?
-
-1. El **dueño del negocio** responde 22 preguntas organizadas en 10 bloques estratégicos
-2. Al finalizar, **descarga un PDF profesional** (o .TXT) con toda la información
-3. **Envía el documento a Startmotif** por WhatsApp o email
-4. El equipo de Startmotif usa este briefing para diseñar la estrategia de Instagram personalizada
+Herramienta web estatica (HTML+CSS+JS) para que clientes de Startmotif completen un briefing estrategico de 22 preguntas sobre su negocio, producto, cliente ideal y metas en Instagram.
 
 ---
 
-## Tecnología
+## Link para tus clientes
+
+### **https://jos3l0.github.io/startmotif-briefing-instagram/**
+
+---
+
+## Contacto Startmotif
+
+- **WhatsApp:** [+54 9 261 278-8674](https://wa.me/5492612788674)
+- **Email:** [olivajose@gmail.com](mailto:olivajose@gmail.com)
+- **GitHub:** [https://github.com/Jos3l0](https://github.com/Jos3l0)
+
+---
+
+## Que hace esta herramienta?
+
+1. El **dueno del negocio** responde 22 preguntas organizadas en 10 bloques estrategicos
+2. Al finalizar, **descarga un PDF profesional** (o .TXT) con toda la informacion
+3. **Envia el documento a Startmotif** por WhatsApp o email
+4. El equipo de Startmotif usa este briefing para disenar la estrategia de Instagram personalizada
+
+---
+
+## Tecnologia
 
 - **HTML5** + **CSS3** + **JavaScript vanilla** (sin frameworks)
-- **html2pdf.js** vía CDN para generación de PDF
+- **html2pdf.js** via CDN para generacion de PDF
 - **Cero backend**, **cero base de datos**, **cero dependencias** externas
-- Compatible con cualquier servidor web estático (Apache, Nginx, WordPress, etc.)
+- Compatible con cualquier servidor web estatico (Apache, Nginx, WordPress, etc.)
 
 ---
 
@@ -26,97 +44,71 @@ Herramienta web estática (HTML+CSS+JS) para que clientes de Startmotif complete
 
 ```
 estratega-instagram/
-├── index.html              # Aplicación completa (SPA)
+├── index.html              # Aplicacion completa (SPA)
 ├── css/
 │   └── styles.css          # Estilos dark mode Startmotif
 ├── js/
-│   └── app.js              # Lógica del wizard, validación, PDF, TXT
+│   └── app.js              # Logica del wizard, validacion, PDF, TXT
 ├── assets/
 │   ├── logo-header.png     # Logo blanco (header de la app)
 │   ├── logo-pdf.png        # Logo para portada del PDF
-│   ├── logo-footer.png     # Logo pequeño (footer)
+│   ├── logo-footer.png     # Logo pequeno (footer)
 │   └── favicon.png         # Favicon del sitio
 └── README.md               # Este archivo
 ```
 
 ---
 
-## Cómo probarlo localmente
-
-### Opción 1: Servidor Python (más simple)
+## Como probarlo localmente
 
 ```bash
 cd estratega-instagram
 python3 -m http.server 8080
+# Abre: http://localhost:8080
 ```
 
-Luego abre en tu navegador: `http://localhost:8080`
+---
 
-### Opción 2: Servidor Node.js
+## Como desplegar en produccion
+
+### Opcion A: GitHub Pages (ya activo)
+
+La app ya esta online en:
+
+**https://jos3l0.github.io/startmotif-briefing-instagram/**
+
+Si haces cambios, solo haz push a `master` y se actualiza automaticamente:
 
 ```bash
-cd estratega-instagram
-npx serve -s . -l 8080
+git add .
+git commit -m "descripcion del cambio"
+git push origin master
 ```
 
-Luego abre: `http://localhost:8080`
+### Opcion B: Hosting propio (cPanel / WordPress / FTP)
 
-### Opción 3: VS Code + Live Server
+1. Descarga el archivo `startmotif-briefing-despliegue.zip` de la ultima release
+2. Sube el ZIP a tu hosting via FTP o cPanel File Manager
+3. Descomprimelo en `/public_html/briefing/` (o la carpeta que prefieras)
+4. Tu link: `https://tudominio.com/briefing/index.html`
 
-1. Abre la carpeta `estratega-instagram/` en VS Code
-2. Instala la extensión **"Live Server"**
-3. Haz clic derecho en `index.html` → "Open with Live Server"
+### Opcion C: Netlify / Vercel
+
+Arrastra la carpeta `estratega-instagram/` al panel de deploy de cualquiera de estas plataformas.
 
 ---
 
-## Cómo desplegar en producción
+## Personalizacion rapida
 
-### Opción A: Hosting compartido / cPanel / WordPress
+### Cambiar el numero de WhatsApp
 
-1. Comprime la carpeta `estratega-instagram/` en un archivo `.zip`
-2. Súbelo a tu hosting vía FTP, File Manager de cPanel, o plugin de WordPress
-3. Descomprímelo en la ruta deseada, por ejemplo:
-   - `/public_html/estratega/`
-   - `/public_html/briefing/`
-4. El link para tus clientes será: `https://tudominio.com/estratega/index.html`
-
-### Opción B: Netlify (gratuito, muy rápido)
-
-1. Ve a [netlify.com](https://netlify.com)
-2. Arrastra la carpeta `estratega-instagram/` al panel de deploy
-3. Obtienes una URL tipo: `https://startmotif-briefing.netlify.app`
-
-### Opción C: Vercel (gratuito)
-
-1. Instala Vercel CLI: `npm i -g vercel`
-2. Desde la carpeta: `vercel --prod`
-
-### Opción D: GitHub Pages (gratuito)
-
-1. Sube la carpeta a un repositorio de GitHub
-2. Ve a Settings → Pages
-3. Selecciona "Deploy from a branch" → `main` → `/ (root)`
-4. Tu URL será: `https://tuusuario.github.io/estratega-instagram/`
-
----
-
-## Personalización rápida
-
-### Número de WhatsApp configurado
-
-El botón de WhatsApp ya apunta al número de Startmotif:
-
-```
-+54 9 261 278-8674
-```
-
-Si necesitas cambiarlo, edita `js/app.js`:
+Edita `js/app.js`, busca:
 
 ```javascript
 document.getElementById('whatsapp-link').href = `https://wa.me/5492612788674?text=${msg}`;
 ```
 
-### Cambiar colores o tipografía
+### Cambiar colores o tipografia
 
 Edita `css/styles.css`, las variables CSS al inicio:
 
@@ -138,40 +130,48 @@ Reemplaza los archivos en `assets/` manteniendo los mismos nombres de archivo.
 
 | # | Pregunta | Obligatorio |
 |---|---|---|
-| 1 | Nombre del responsable | Sí |
-| 2 | Correo electrónico | No |
-| 3 | Descripción del negocio | Sí |
-| 4 | Producto/servicio detallado | Sí |
-| 5 | Perfil del cliente ideal | Sí |
-| 6 | Problema que resuelves | Sí |
-| 7 | Barreras del cliente | Sí |
-| 8 | Resultado que busca el cliente | Sí |
-| 9 | Objetivo del negocio en Instagram | Sí |
-| 10 | Errores previos del cliente | Sí |
-| 11 | Mitos que frenan la compra | Sí |
-| 12 | Diferenciadores de la marca | Sí |
+| 1 | Nombre del responsable | Si |
+| 2 | Correo electronico | No |
+| 3 | Descripcion del negocio | Si |
+| 4 | Producto/servicio detallado | Si |
+| 5 | Perfil del cliente ideal | Si |
+| 6 | Problema que resuelves | Si |
+| 7 | Barreras del cliente | Si |
+| 8 | Resultado que busca el cliente | Si |
+| 9 | Objetivo del negocio en Instagram | Si |
+| 10 | Errores previos del cliente | Si |
+| 11 | Mitos que frenan la compra | Si |
+| 12 | Diferenciadores de la marca | Si |
 | 13 | Testimonios y casos | No |
 | 14 | Usuario de Instagram | No |
 | 15 | Seguidores aproximados | No |
-| 16 | Frecuencia de publicación | Sí |
-| 17 | Tipo de contenido actual | Sí |
-| 18 | Contenido que funciona/no funciona | Sí |
-| 19 | Métricas aproximadas | No |
-| 20 | Mensajes y consultas recibidas | Sí |
-| 21 | Mayor problema con Instagram | Sí |
-| 22 | Capacidad de producción de contenido | Sí |
+| 16 | Frecuencia de publicacion | Si |
+| 17 | Tipo de contenido actual | Si |
+| 18 | Contenido que funciona/no funciona | Si |
+| 19 | Metricas aproximadas | No |
+| 20 | Mensajes y consultas recibidas | Si |
+| 21 | Mayor problema con Instagram | Si |
+| 22 | Capacidad de produccion de contenido | Si |
 | 23 | Herramientas digitales disponibles | No (checkbox) |
-| 24 | Tono y personalidad deseada | Sí |
-| 25 | Acción esperada de la audiencia | Sí |
-| 26 | CTA o llamado a la acción | Sí |
-| 27 | Inversión en anuncios | Sí |
+| 24 | Tono y personalidad deseada | Si |
+| 25 | Accion esperada de la audiencia | Si |
+| 26 | CTA o llamado a la accion | Si |
+| 27 | Inversion en anuncios | Si |
 | 28 | Presupuesto mensual estimado | No |
 | 29 | Objetivo de publicidad pagada | Condicional |
 | 30 | Herramientas de seguimiento | No (checkbox) |
-| 31 | Métrica más importante | Sí |
+| 31 | Metrica mas importante | Si |
 
 ---
 
 ## Licencia
 
-© Startmotif — Uso exclusivo para el negocio.
+(c) Startmotif — Uso exclusivo para el negocio.
+
+---
+
+## Repositorio
+
+- **GitHub:** https://github.com/Jos3l0/startmotif-briefing-instagram
+- **Autor:** Jose Oliva (olivajose@gmail.com)
+- **Empresa:** Startmotif
