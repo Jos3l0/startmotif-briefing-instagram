@@ -604,17 +604,20 @@ select option {
   color: #111;
 }
 
-.pdf-content .pdf-header,
+.pdf-content .pdf-header {
+  color: #111;
+}
+
 .pdf-content .pdf-header * {
-  color: #fff !important;
+  color: #111 !important;
 }
 
 .pdf-header {
   text-align: center;
   margin-bottom: 40px;
-  padding: 30px;
-  background: #0a0a0a;
-  border-radius: 12px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #e5e5e5;
+  background: #ffffff;
 }
 
 .pdf-header img {
